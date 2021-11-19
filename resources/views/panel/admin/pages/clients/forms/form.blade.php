@@ -14,6 +14,12 @@
     </div>
     <div class="col-md-2">
         <div class="form-group">
+            <label for="">Matrícula</label>
+            <input type="text" class="form-control" name="matricula" value="{{$data->matricula ??old('matricula')}}">
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
             <label for="">Nº Livro</label>
             <input type="text" class="form-control" name="livro" value="{{$data->livro ??old('livro')}}">
         </div>

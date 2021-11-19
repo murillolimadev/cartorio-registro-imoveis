@@ -10,6 +10,7 @@ class Client extends Model
         'outorgado',
         'data',
         'livro',
-        'fls'
+        'fls',
+        'matricula'
     ];
 }

@@ -17,8 +17,9 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('outorgado');
             $table->date('data');
-            $table->string('livro');
-            $table->string('fls');
+            $table->string('livro')->nullable();
+            $table->string('fls')->nullable();
+            $table->string('matricula')->nullable();
             $table->timestamps();
         });
     }
