@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Client;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
     protected $fillable = [
-        'outorgado',
-        'data',
-        'livro',
-        'fls',
-        'matricula'
+
     ];
 }

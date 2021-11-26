@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Indice\Indice;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,11 +13,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    private $client;
-    public function __construct(Client $client)
+    private $indice;
+    public function __construct(Indice $indice)
     {
         $this->middleware('auth');
-        $this->client = $client;
+        $this->indice = $indice;
     }
     /**
      * Show the application dashboard.
@@ -25,7 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $clients = $this->client->orderby('id', 'desc')->paginate(30);
-        return view('panel.admin.pages.clients.index', compact('clients'));
+        return view('panel.admin.pages.index');
     }
 }

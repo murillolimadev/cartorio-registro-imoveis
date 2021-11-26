@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ClientRequest;
-use App\Models\Client\Client;
+use App\Http\Requests\IndiceRequest;
 use App\Models\Indice\Indice;
+use Barryvdh\DomPDF\Facade as PDF;
 
-class ClientController extends Controller
+class IndiceController extends Controller
 {
-    private $client;
-    public function __construct(Client $client)
+    private $indice;
+    public function __construct(Indice $indice)
     {
-        $this->client = $client;
+        $this->indice = $indice;
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = $this->indice->orderby('id', 'desc')->paginate(150);
-        return view('panel.admin.pages.clients.index', compact('data'));
+        return view('panel.admin.pages.indice.index', compact('data'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('panel.admin.pages.clients.create');
+        return view('panel.admin.pages.indice.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClientRequest $request)
+    public function store(IndiceRequest $request)
     {
         // dd($request->all());
         $this->indice->create($request->all());
@@ -59,7 +59,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $data = $this->indice->find($id);
-        return view('panel.admin.pages.clients.edit', compact('data'));
+        return view('panel.admin.pages.indice.edit', compact('data'));
     }
 
     /**
@@ -69,7 +69,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClientRequest $request, $id)
+    public function update(IndiceRequest $request, $id)
     {
         $indice = $this->indice->find($id);
         $indice->update($request->all());
@@ -90,7 +90,23 @@ class ClientController extends Controller
 
     public function pesquisar(Request $request)
     {
-        $data = $this->client->where('name', 'LIKE', '%' . $request->get('value') . '%')->paginate();
-        return view('panel.admin.pages.clients.index', compact('data'));
+        $data = $this->indice->where('outorgado', 'LIKE', '%' . $request->get('value') . '%')->paginate();
+        return view('panel.admin.pages.indice.index', compact('data'));
+    }
+
+    public function report(Request $request)
+    {
+        return view('panel.admin.pages.indice.report');
+    }
+
+    public function result(Request $request)
+    {
+        $date_start = date('Y-m-d', strtotime($request->get('date_start')));
+        $date_end = date('Y-m-d', strtotime($request->get('date_end')));
+        $data = $this->indice->whereBetween('data', [$date_start, $date_end])->get();
+
+        //Print
+        $pdf = PDF::loadView('panel.admin.pages.indice.print', compact('data', 'date_start', 'date_end'));
+        return $pdf->stream();
     }
 }

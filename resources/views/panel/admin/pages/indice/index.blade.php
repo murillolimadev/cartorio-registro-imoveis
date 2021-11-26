@@ -1,4 +1,4 @@
-@extends('panel.admin.layouts.app' ,['activePage' => 'client.index'])
+@extends('panel.admin.layouts.app' ,['activePage' => 'indice.index'])
 @section('title', 'Pesquisar')
 @section('content')
 <div class="content-wrapper">
@@ -23,15 +23,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-default">
-                        <div class="card-header border-0">
-                            {{-- <h3 class="card-title">Clientes</h3> --}}
-                        </div>
                         <div class="card-body">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Outorgado</th>
                                         <th>Data</th>
+                                        <th>Matrícula</th>
                                         <th>Nº Livro</th>
                                         <th>FLS</th>
                                         <th>#</th>
@@ -42,12 +40,13 @@
                                     <tr>
                                         <td>{{$item->outorgado}}</td>
                                         <td>{{date('d/m/Y', strtotime($item->data))}}</td>
+                                        <td>{{$item->matricula}}</td>
                                         <td>{{$item->livro}}</td>
                                         <td>{{$item->fls}}</td>
                                         <td>
-                                            <a href="{{ route('client.edit', ['id'=>$item->id]) }}" title="Editar"><i
+                                            <a href="{{ route('indice.edit', ['id'=>$item->id]) }}" title="Editar"><i
                                                     class="fa fa-edit"></i></a>
-                                            <a href="{{ route('client.delete', ['id'=>$item->id]) }}" title="Deletar" style="color: red"><i
+                                            <a href="{{ route('indice.delete', ['id'=>$item->id]) }}" title="Deletar" style="color: red"><i
                                                     class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

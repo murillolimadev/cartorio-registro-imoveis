@@ -1,4 +1,4 @@
-@extends('panel.admin.layouts.app' ,['activePage' => 'client.create'])
+@extends('panel.admin.layouts.app' ,['activePage' => 'indice.create'])
 @section('title', 'Cadastrar')
 @section('content')
 <div class="content-wrapper">
@@ -11,9 +11,8 @@
                 <div class="col-md-12">
                     <div class="card card-default">
                         <div class="card-body">
-                            {!! Form::open(['route'=>'client.store']) !!}
-                            @include('panel.admin.pages.clients.forms.form')
-
+                            {!! Form::open(['route'=>'indice.store']) !!}
+                            @include('panel.admin.pages.indice.forms.form')
                             <button type="submit" class="btn btn-block btn-default">Cadastrar</button>
                             {!! Form::close() !!}
                         </div>

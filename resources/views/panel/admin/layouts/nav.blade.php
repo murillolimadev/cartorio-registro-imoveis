@@ -35,35 +35,77 @@
 <aside class="main-sidebar elevation-4 sidebar-light-secondary">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="{{ asset('logos/favicon.svg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('logos/favicon.svg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
         <span class="brand-text font-weight-light">Cartório 1º Ofício</span>
-      </a>
+    </a>
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('client.index') }}"
-                        class="nav-link {{ $activePage == 'client.index' ? ' active' : '' }}">
-                        <i class="nav-icon fa fa-users"></i>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Pesquisar
+                            Escrituras
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Venda e Compra</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="{{ route('client.create') }}"
-                        class="nav-link {{ $activePage == 'client.create' ? ' active' : '' }}">
+                <li class="nav-item {{ 
+                    $activePage == 'indice.index' ||
+                    $activePage == 'indice.create' || 
+                    $activePage == 'indice.report' ? ' menu-open' : '' }}">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-list-alt"></i>
                         <p>
-                            Cadastrar
+                            Índice
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('indice.index') }}"
+                                class="nav-link {{ $activePage == 'indice.index' ? ' active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Pesquisar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('indice.create') }}"
+                                class="nav-link {{ $activePage == 'indice.create' ? ' active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Cadastrar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('indice.report') }}"
+                                class="nav-link {{ $activePage == 'indice.report' ? ' active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Relatórios
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

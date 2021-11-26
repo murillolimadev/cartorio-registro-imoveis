@@ -34,7 +34,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="{{ route('product.index') }}" class="small-box-footer">info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="" class="small-box-footer">info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -49,7 +49,7 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="{{ route('report.index') }}" class="small-box-footer">info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="" class="small-box-footer">info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
