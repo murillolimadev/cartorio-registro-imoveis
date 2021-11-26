@@ -37,6 +37,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Outorgado</th>
                                 <th>Data</th>
                                 <th>Matrícula</th>
@@ -47,6 +48,7 @@
                         <tbody>
                             @forelse ($data as $item)
                             <tr>
+                                <td>{{$item->id}}</td>
                                 <td>{{$item->outorgado}}</td>
                                 <td>{{date('d/m/Y', strtotime($item->data))}}</td>
                                 <td>{{$item->matricula}}</td>
