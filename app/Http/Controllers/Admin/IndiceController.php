@@ -90,7 +90,7 @@ class IndiceController extends Controller
 
     public function pesquisar(Request $request)
     {
-        $data = $this->indice->where('outorgado', 'LIKE', '%' . $request->get('value') . '%')->paginate();
+        $data = $this->indice->where('outorgado', 'LIKE', '%' . $request->get('value') . '%')->paginate(100);
         return view('panel.admin.pages.indice.index', compact('data'));
     }
 

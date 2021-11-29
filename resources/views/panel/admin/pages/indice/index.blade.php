@@ -10,7 +10,7 @@
 
             <div class="row" style="margin-bottom: 15px;">
                 <div class="col-md-5">
-                    <form action="{{ route('client.pesquisar') }}" method="get">
+                    <form action="{{ route('indice.pesquisar') }}" method="get">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Pesquisar" name="value">
                             <span class="input-group-append">
