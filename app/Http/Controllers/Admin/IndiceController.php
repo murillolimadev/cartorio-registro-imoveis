@@ -104,7 +104,7 @@ class IndiceController extends Controller
         $date_start = date('Y-m-d', strtotime($request->get('date_start')));
         $date_end = date('Y-m-d', strtotime($request->get('date_end')));
         $data = $this->indice->whereBetween('data', [$date_start, $date_end])->orderby('outorgado', 'asc')->get();
-
+        dd($data);
         //Print
         $pdf = PDF::loadView('panel.admin.pages.indice.print', compact('data', 'date_start', 'date_end'));
         return $pdf->stream();
